@@ -10,21 +10,11 @@ _main:                                  ## @main
 	.cfi_offset %rbp, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
-	subq	$32, %rsp
-	movl	$0, -4(%rbp)
-	movl	%edi, -8(%rbp)
-	movq	%rsi, -16(%rbp)
-	movl	$1, -20(%rbp)
-	movl	$2, -24(%rbp)
-	movl	-20(%rbp), %eax
-	addl	-24(%rbp), %eax
-	movl	%eax, -28(%rbp)
-	movl	-28(%rbp), %esi
 	leaq	L_.str(%rip), %rdi
-	movb	$0, %al
+	movl	$3, %esi
+	xorl	%eax, %eax
 	callq	_printf
 	xorl	%eax, %eax
-	addq	$32, %rsp
 	popq	%rbp
 	retq
 	.cfi_endproc
